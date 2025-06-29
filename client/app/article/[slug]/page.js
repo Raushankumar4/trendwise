@@ -64,7 +64,7 @@ export async function generateMetadata({ params }) {
       title: article.title,
       description: article.meta,
       type: "article",
-      url: `https://trendwise.vercel.app/article/${article.slug}`,
+      url: `https://trendwise-beta.vercel.app/article/${article.slug}`,
     },
     twitter: {
       card: "summary_large_image",
