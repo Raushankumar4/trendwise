@@ -1,7 +1,6 @@
 import React from "react";
-import Comments from "../article/[slug]/page";
-import ArticleContent from "../../../components/ArticleContent";
-import { Metadata } from "next";
+import Comments from "@/components/Comments";
+import ArticleContent from "@/components/ArticleContent";
 import { notFound } from "next/navigation";
 
 async function getArticle(slug) {
@@ -30,7 +29,7 @@ export default async function ArticlePage({ params }) {
     <main className="max-w-screen-md lg:max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <article>
         <header className="mb-8">
-          <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-4 text-gray-900">
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 text-gray-900">
             {article.title}
           </h1>
           <div className="text-sm text-gray-500 italic">{article.meta}</div>
@@ -51,8 +50,10 @@ export default async function ArticlePage({ params }) {
 export async function generateMetadata({ params }) {
   const slug = params.slug;
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE}/api/article/${slug}`
+    `${process.env.NEXT_PUBLIC_API_BASE}/api/article/${slug}`,
+    { cache: "no-store" }
   );
+
   if (!res.ok) return notFound();
 
   const article = await res.json();
@@ -60,6 +61,7 @@ export async function generateMetadata({ params }) {
   return {
     title: article.title,
     description: article.meta,
+    keywords: article.title.split(" "),
     openGraph: {
       title: article.title,
       description: article.meta,
