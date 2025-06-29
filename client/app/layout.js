@@ -8,7 +8,7 @@ export const metadata = {
   title: "TrendWise",
   description: "AI-powered article generator",
   other: {
-    "google-site-verification": "googledab816b47a60c87d.htm",
+    "google-site-verification": "googledab816b47a60c87d.html",
   },
 };
 
