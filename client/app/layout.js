@@ -6,7 +6,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "TrendWise",
-  description: "Trending blog platform",
+  description: "AI-powered article generator",
+  other: {
+    "google-site-verification": "googledab816b47a60c87d.htm",
+  },
 };
 
 export default function RootLayout({ children }) {
