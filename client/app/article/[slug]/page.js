@@ -1,6 +1,6 @@
 import React from "react";
-import Comments from "@/components/Comments";
-import ArticleContent from "@/components/ArticleContent";
+import Comments from "../article/[slug]/page";
+import ArticleContent from "../../../components/ArticleContent";
 import { notFound } from "next/navigation";
 
 async function getArticle(slug) {
